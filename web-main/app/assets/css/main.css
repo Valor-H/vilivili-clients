@@ -1,0 +1,119 @@
+/* Vilivili - Bilibili style dark theme framework */
+
+:root {
+  /* Layout
+     当视口宽度 >= 2260px 时，padding 固定 140px，内容区最大 1980px
+     当视口宽度 <= 2100px 时，padding 固定 60px
+     中间区间 padding 自动适配，保持内容区 1980px
+  */
+  --layout-padding: clamp(60px, calc((100vw - 1980px) / 2), 140px);
+
+  /* Dark theme (default) */
+  --bg1: #0d0d0e;
+  --bg2: #16181a;
+  --bg3: #23262a;
+  --bg4: #2e3238;
+  --text1: #e3e5e7;
+  --text2: #b6b7ba;
+  --text3: #7a7b7e;
+  --text4: #606266;
+  --line_regular: #41444b;
+  --line_light: #2e3238;
+  --graph_bg_thin: #1e2022;
+  --graph_bg_regular: #23262a;
+  --graph_bg_thick: #2e3238;
+  --brand_blue: #00aeec;
+  --brand_pink: #fb7299;
+  --brand_pink_light: #ff85a7;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#__nuxt,
+#app {
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--bg1);
+  color: var(--text1);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+    Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB",
+    "Microsoft Yahei", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Bilibili feed layout */
+.bili-feed {
+  position: relative;
+  min-width: 1100px;
+}
+
+.bili-header {
+  position: relative;
+  margin: 0 auto;
+  max-width: 2560px;
+  width: 100%;
+  min-width: 1100px;
+  color: var(--text1);
+  font-size: 14px;
+  line-height: 1.6;
+  --left-loc-height: 64px;
+  z-index: 100;
+}
+
+/* 顶栏悬浮在 Banner 上方 */
+.bili-header__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0 var(--layout-padding);
+  max-width: calc(1980px + 2 * var(--layout-padding));
+  z-index: 20;
+}
+
+/* 频道栏 */
+.bili-header__channel {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 var(--layout-padding);
+  max-width: calc(1980px + 2 * var(--layout-padding));
+  z-index: 10;
+}
+
+/* Banner 区域全宽 */
+.bili-header__banner {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+  background-color: var(--graph_bg_regular);
+}
+
+.bili-main {
+  margin: 0 auto;
+  padding: 0 var(--layout-padding) 40px;
+  max-width: calc(1980px + 2 * var(--layout-padding));
+  min-height: calc(100vh - 64px);
+}
